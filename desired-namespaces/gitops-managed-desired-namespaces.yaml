@@ -19,3 +19,6 @@ data:
       language: angular
     - name: golang-opts
       language: golang
+    - name: java-opts
+      language: java  
+      scanpolicy: grype-scan-policy

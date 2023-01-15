@@ -7,7 +7,7 @@
 apiVersion: scanning.apps.tanzu.vmware.com/v1beta1
 kind: ScanPolicy
 metadata:
-  name: scan-policy
+  name: grype-scan-policy
   labels:
     'app.kubernetes.io/part-of': 'scan-system'
 spec:
@@ -16,7 +16,11 @@ spec:
 
     # Accepted Values: "Critical", "High", "Medium", "Low", "Negligible", "UnknownSeverity"
     notAllowedSeverities := ["Critical", "High", "UnknownSeverity"]
-    ignoreCves := []
+
+    # customization
+    ignoreSeverities := ["Critical", "High", "Medium", "Low"]
+
+    gnoreCves := []
 
     contains(array, elem) = true {
       array[_] = elem
